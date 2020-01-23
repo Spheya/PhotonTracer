@@ -103,7 +103,7 @@ sf::Image buildImage(const Image& image) {
 }
 
 int main() {
-	constexpr size_t w = 2560, h = 1440;
+	constexpr size_t w = 512, h = 512;
 
 	std::shared_ptr<Scene> scene = std::make_shared<Scene>();
 	//scene->add(std::make_unique<Plane>(Material(glm::vec3(1.0f, 0.0f, 1.0f))));
