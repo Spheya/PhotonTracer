@@ -108,15 +108,15 @@ int main() {
 	std::shared_ptr<Scene> scene = std::make_shared<Scene>();
 	//scene->add(std::make_unique<Plane>(Material(glm::vec3(1.0f, 0.0f, 1.0f))));
 	scene->add(std::make_unique<Sphere>(
-		Material(glm::vec3(1.0f, 0.5f, 1.0f)),
+		Material(glm::vec3(1.0f, 0.5f, 1.0f), 0.0f),
 		Transform(glm::vec3(0.0f, -1.0f, 5.0f)))
 	);
 	scene->add(std::make_unique<Sphere>(
-		Material(glm::vec3(1.0f, 0.5f, 0.5f)),
+		Material(glm::vec3(1.0f, 0.5f, 0.5f), 0.0f),
 		Transform(glm::vec3(0.0f, 1.0f, 5.0f)))
 	);
 	scene->add(std::make_unique<Plane>(
-		Material(glm::vec3(0.5f, 1.0f, 0.5f)),
+		Material(glm::vec3(0.5f, 1.0f, 0.5f), 0.0f),
 		Transform(glm::vec3(0.0f, -1.0f, 5.0f), glm::vec3(5.0f)))
 	);
 
@@ -139,10 +139,10 @@ int main() {
 			if (updateCamera(scene->getCamera()))
 				renderer.resetImage();
 
-		for (int i = 0; i < 100000; ++i) {
+		for (int i = 0; i < 200000; ++i) {
 			renderer.castPhoton(Photon(
 				Ray(
-					glm::vec3(0.0f, 3.0f, 2.0f) + Maths::randomPointOnUnitSphere() * 2.0f,
+					glm::vec3(0.0f, 3.0f, 2.0f) + Maths::randomPointOnUnitSphere() * 0.5f,
 					Maths::randomPointOnUnitSphere()
 				),
 				glm::vec3(1.0f, 1.0, 1.0f)
